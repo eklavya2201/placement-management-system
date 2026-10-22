@@ -1,0 +1,51 @@
+@using PlacementManagementSystem.Data
+@using PlacementManagementSystem.Models
+@model List<ApplicationRow>
+
+@{
+    ViewData["Title"] = "Applications";
+    var statuses = (ApplicationStatus[])ViewBag.Statuses;
+}
+
+<div class="page-head">
+    <div>
+        <h1>Applications</h1>
+        <p>@Model.Count applications · CGPA eligibility is checked automatically</p>
+    </div>
+    <a class="btn btn-primary" asp-action="Apply">+ Apply Student</a>
+</div>
+
+<div class="panel">
+    <table class="table data-table mb-0">
+        <thead>
+            <tr><th>Student</th><th>Company</th><th>Role</th><th>Status</th><th>Update</th></tr>
+        </thead>
+        <tbody>
+            @if (Model.Count == 0)
+            {
+                <tr><td colspan="5" class="empty">No applications yet.</td></tr>
+            }
+            @foreach (var a in Model)
+            {
+                <tr>
+                    <td class="strong">@a.StudentName</td>
+                    <td>@a.CompanyName</td>
+                    <td>@a.Role</td>
+                    <td><partial name="_StatusPill" model="a.Status" /></td>
+                    <td>
+                        <form asp-action="UpdateStatus" method="post" class="status-form">
+                            <input type="hidden" name="id" value="@a.Id" />
+                            <select name="status" class="form-select form-select-sm">
+                                @foreach (var s in statuses)
+                                {
+                                    <option value="@s" selected="@(s.ToString() == a.Status)">@s</option>
+                                }
+                            </select>
+                            <button type="submit" class="btn btn-sm btn-dark">Save</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

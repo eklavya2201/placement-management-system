@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlacementManagementSystem.Core", "Core\PlacementManagementSystem.Core.csproj", "{E46CAA1D-1AB0-439A-A320-E4FE2A6559F2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlacementManagementSystem.Web", "Web\PlacementManagementSystem.Web.csproj", "{6B073431-893B-4B55-9E61-91EBFDC3DAAC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E46CAA1D-1AB0-439A-A320-E4FE2A6559F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E46CAA1D-1AB0-439A-A320-E4FE2A6559F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E46CAA1D-1AB0-439A-A320-E4FE2A6559F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E46CAA1D-1AB0-439A-A320-E4FE2A6559F2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6B073431-893B-4B55-9E61-91EBFDC3DAAC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6B073431-893B-4B55-9E61-91EBFDC3DAAC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6B073431-893B-4B55-9E61-91EBFDC3DAAC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6B073431-893B-4B55-9E61-91EBFDC3DAAC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

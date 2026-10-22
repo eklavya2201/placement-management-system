@@ -1,0 +1,33 @@
+@using PlacementManagementSystem.Models
+@model Company
+
+@{
+    ViewData["Title"] = "Add Company";
+}
+
+<div class="page-head">
+    <div>
+        <a class="back" asp-action="Index">← Companies</a>
+        <h1>Add Company</h1>
+    </div>
+</div>
+
+<form asp-action="Create" method="post" class="panel form-panel">
+    <div asp-validation-summary="All" class="form-errors"></div>
+    <div class="mb-3">
+        <label class="form-label">Company name</label>
+        <input asp-for="Name" class="form-control" placeholder="e.g. Infosys" required />
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Sector</label>
+        <input asp-for="Sector" class="form-control" placeholder="e.g. IT Services" required />
+    </div>
+    <div class="mb-3">
+        <label class="form-label">HR contact email</label>
+        <input asp-for="ContactEmail" class="form-control" type="email" placeholder="hr@company.com" required />
+    </div>
+    <div class="form-actions">
+        <a asp-action="Index" class="btn btn-link">Cancel</a>
+        <button type="submit" class="btn btn-primary">Save company</button>
+    </div>
+</form>

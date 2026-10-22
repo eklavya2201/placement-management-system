@@ -1,0 +1,45 @@
+@using PlacementManagementSystem.Models
+@model Student
+
+@{
+    ViewData["Title"] = "Add Student";
+}
+
+<div class="page-head">
+    <div>
+        <a class="back" asp-action="Index">← Students</a>
+        <h1>Add Student</h1>
+    </div>
+</div>
+
+<form asp-action="Create" method="post" class="panel form-panel">
+    <div asp-validation-summary="All" class="form-errors"></div>
+    <div class="mb-3">
+        <label class="form-label">Full name</label>
+        <input asp-for="Name" class="form-control" placeholder="e.g. Ananya Iyer" required />
+    </div>
+    <div class="row">
+        <div class="col-sm-8 mb-3">
+            <label class="form-label">Branch</label>
+            <input asp-for="Branch" class="form-control" placeholder="e.g. Computer Science" required />
+        </div>
+        <div class="col-sm-4 mb-3">
+            <label class="form-label">Graduation year</label>
+            <input asp-for="GraduationYear" class="form-control" type="number" min="2000" max="2100" required />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-4 mb-3">
+            <label class="form-label">CGPA</label>
+            <input asp-for="Cgpa" class="form-control" type="number" step="0.01" min="0" max="10" required />
+        </div>
+        <div class="col-sm-8 mb-3">
+            <label class="form-label">Email</label>
+            <input asp-for="Email" class="form-control" type="email" placeholder="name@college.edu" required />
+        </div>
+    </div>
+    <div class="form-actions">
+        <a asp-action="Index" class="btn btn-link">Cancel</a>
+        <button type="submit" class="btn btn-primary">Save student</button>
+    </div>
+</form>

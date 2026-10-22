@@ -1,0 +1,14 @@
+﻿@model ErrorViewModel
+@{
+    ViewData["Title"] = "Error";
+}
+
+<div class="panel form-panel">
+    <h1 class="h4">Something went wrong</h1>
+    <p class="muted mb-3">The request could not be completed. This usually means the database is unreachable — wait a few seconds and refresh.</p>
+    @if (Model.ShowRequestId)
+    {
+        <p class="muted small mb-3">Request ID: <code>@Model.RequestId</code></p>
+    }
+    <a class="btn btn-primary" asp-controller="Home" asp-action="Index">Back to dashboard</a>
+</div>

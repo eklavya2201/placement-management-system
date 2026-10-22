@@ -1,0 +1,43 @@
+@using PlacementManagementSystem.Models
+@model List<Student>
+
+@{
+    ViewData["Title"] = "Students";
+}
+
+<div class="page-head">
+    <div>
+        <h1>Students</h1>
+        <p>@Model.Count registered for placements</p>
+    </div>
+    <a class="btn btn-primary" asp-action="Create">+ Add Student</a>
+</div>
+
+<div class="panel">
+    <table class="table data-table mb-0">
+        <thead>
+            <tr><th>Student</th><th>Branch</th><th>Batch</th><th>CGPA</th><th>Email</th></tr>
+        </thead>
+        <tbody>
+            @if (Model.Count == 0)
+            {
+                <tr><td colspan="5" class="empty">No students added yet.</td></tr>
+            }
+            @foreach (var s in Model)
+            {
+                <tr>
+                    <td>
+                        <div class="person">
+                            <span class="avatar">@s.Name.Substring(0, 1).ToUpper()</span>
+                            <span class="strong">@s.Name</span>
+                        </div>
+                    </td>
+                    <td>@s.Branch</td>
+                    <td>@s.GraduationYear</td>
+                    <td><span class="cgpa @(s.Cgpa >= 8 ? "hi" : s.Cgpa >= 7 ? "mid" : "lo")">@s.Cgpa.ToString("0.00")</span></td>
+                    <td class="muted">@s.Email</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

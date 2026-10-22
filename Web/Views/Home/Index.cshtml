@@ -1,0 +1,61 @@
+@using PlacementManagementSystem.Data
+@model List<ApplicationRow>
+
+@{
+    ViewData["Title"] = "Dashboard";
+}
+
+<section class="hero">
+    <div>
+        <span class="eyebrow">Training &amp; Placement Cell</span>
+        <h1>College Placement Management System</h1>
+        <p>Students, recruiters, hiring drives and every application, in one place.</p>
+    </div>
+    <a class="btn btn-light btn-lg" asp-controller="Applications" asp-action="Apply">Apply a student →</a>
+</section>
+
+<div class="stats">
+    <a class="stat" asp-controller="Students" asp-action="Index">
+        <span class="stat-label">Students</span>
+        <span class="stat-value">@ViewBag.Students</span>
+    </a>
+    <a class="stat" asp-controller="Companies" asp-action="Index">
+        <span class="stat-label">Companies</span>
+        <span class="stat-value">@ViewBag.Companies</span>
+    </a>
+    <a class="stat" asp-controller="JobDrives" asp-action="Index">
+        <span class="stat-label">Job Drives</span>
+        <span class="stat-value">@ViewBag.Drives</span>
+    </a>
+    <a class="stat stat-accent" asp-controller="Applications" asp-action="Index">
+        <span class="stat-label">Students Selected</span>
+        <span class="stat-value">@ViewBag.Selected</span>
+    </a>
+</div>
+
+<div class="panel">
+    <div class="panel-head">
+        <h2>Recent applications</h2>
+        <a asp-controller="Applications" asp-action="Index">View all</a>
+    </div>
+    <table class="table data-table mb-0">
+        <thead>
+            <tr><th>Student</th><th>Company</th><th>Role</th><th>Status</th></tr>
+        </thead>
+        <tbody>
+            @if (Model.Count == 0)
+            {
+                <tr><td colspan="4" class="empty">No applications yet.</td></tr>
+            }
+            @foreach (var a in Model)
+            {
+                <tr>
+                    <td class="strong">@a.StudentName</td>
+                    <td>@a.CompanyName</td>
+                    <td>@a.Role</td>
+                    <td><partial name="_StatusPill" model="a.Status" /></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

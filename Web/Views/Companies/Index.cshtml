@@ -1,0 +1,41 @@
+@using PlacementManagementSystem.Models
+@model List<Company>
+
+@{
+    ViewData["Title"] = "Companies";
+}
+
+<div class="page-head">
+    <div>
+        <h1>Companies</h1>
+        <p>@Model.Count recruiting partners</p>
+    </div>
+    <a class="btn btn-primary" asp-action="Create">+ Add Company</a>
+</div>
+
+<div class="panel">
+    <table class="table data-table mb-0">
+        <thead>
+            <tr><th>Company</th><th>Sector</th><th>Contact</th></tr>
+        </thead>
+        <tbody>
+            @if (Model.Count == 0)
+            {
+                <tr><td colspan="3" class="empty">No companies added yet.</td></tr>
+            }
+            @foreach (var c in Model)
+            {
+                <tr>
+                    <td>
+                        <div class="person">
+                            <span class="avatar square">@c.Name.Substring(0, 1).ToUpper()</span>
+                            <span class="strong">@c.Name</span>
+                        </div>
+                    </td>
+                    <td><span class="tag">@c.Sector</span></td>
+                    <td class="muted">@c.ContactEmail</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
