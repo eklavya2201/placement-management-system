@@ -272,3 +272,17 @@ a:hover { color: var(--brand-dark); }
   .page-head { flex-direction: column; align-items: flex-start; }
   .data-table { display: block; overflow-x: auto; white-space: nowrap; }
 }
+
+/* ---------- Database view ---------- */
+.side-db { margin-top: 1rem; }
+
+.db-info { display: flex; flex-wrap: wrap; gap: .5rem; margin-bottom: 1rem; }
+.db-info span { background: #fff; border: 1px solid var(--line); border-radius: 10px; padding: .45rem .8rem; font-size: .85rem; color: var(--muted); }
+.db-info b { color: var(--ink); margin-right: .35rem; }
+
+.db-tabs { display: flex; gap: .4rem; margin-bottom: 1rem; flex-wrap: wrap; }
+.db-tabs a { font-family: ui-monospace, Consolas, monospace; font-size: .85rem; font-weight: 600; padding: .45rem .9rem; border-radius: 10px; background: #fff; border: 1px solid var(--line); color: var(--text); }
+.db-tabs a.active { background: var(--ink); border-color: var(--ink); color: #fff; }
+
+.db-table thead th { text-transform: none; letter-spacing: 0; font-family: ui-monospace, Consolas, monospace; font-size: .8rem; }
+.db-table td { font-family: ui-monospace, Consolas, monospace; font-size: .85rem; }

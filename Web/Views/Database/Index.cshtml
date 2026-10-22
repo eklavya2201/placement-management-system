@@ -1,0 +1,54 @@
+@using PlacementManagementSystem.Data
+@model TableData
+
+@{
+    ViewData["Title"] = "Database";
+}
+
+<div class="page-head">
+    <div>
+        <h1>Database</h1>
+        <p>Live, read-only view of the MySQL tables behind this app.</p>
+    </div>
+</div>
+
+<div class="db-info">
+    <span><b>Engine</b> MySQL @ViewBag.Version</span>
+    <span><b>Database</b> @ViewBag.Database</span>
+    <span><b>Table</b> @Model.Name · @Model.Rows.Count rows</span>
+</div>
+
+<div class="db-tabs">
+    @foreach (var t in DatabaseRepository.Tables)
+    {
+        <a class="@(t == Model.Name ? "active" : "")" asp-action="Index" asp-route-table="@t">@t</a>
+    }
+</div>
+
+<div class="panel">
+    <table class="table data-table db-table mb-0">
+        <thead>
+            <tr>
+                @foreach (var c in Model.Columns)
+                {
+                    <th>@c</th>
+                }
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model.Rows.Count == 0)
+            {
+                <tr><td colspan="@Model.Columns.Count" class="empty">Table is empty.</td></tr>
+            }
+            @foreach (var row in Model.Rows)
+            {
+                <tr>
+                    @foreach (var v in row)
+                    {
+                        <td>@v</td>
+                    }
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
